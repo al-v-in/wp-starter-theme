@@ -31,3 +31,18 @@ function excerpt_more() {
   return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
+
+
+function featured_image() {
+  if ( post_password_required() || is_attachment() || !has_post_thumbnail() ) {
+    return;
+  } ?>
+  <?php if ( is_singular() ) : ?>
+    <div class="fea-image-cntr">
+      <div class="post-thumbnail">
+        <?php the_post_thumbnail('large'); ?>
+      </div><!-- .post-thumbnail -->
+    </div>
+  <?php endif; // End is_singular() ?>
+  <?php
+}
