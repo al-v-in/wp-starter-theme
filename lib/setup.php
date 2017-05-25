@@ -104,3 +104,11 @@ function assets() {
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+
+add_filter( 'wp_get_attachment_url', function( $url, $id = null ){
+  if( is_ssl() )
+    $url = str_replace( 'http://', 'https://', $url );
+
+  return $url;
+});
