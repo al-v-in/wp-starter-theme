@@ -46,3 +46,39 @@ function featured_image() {
   <?php endif; // End is_singular() ?>
   <?php
 }
+
+function field_image( $fieldName, $size = 'large', $isIncLink = false ) {
+  $image = get_field( $fieldName );
+  if( !empty($image) ):
+    // vars
+    $url = $image['url'];
+    $title = $image['title'];
+    $alt = $image['alt'];
+    $caption = $image['caption'];
+
+    $thumb = $image['sizes'][ $size ];
+    $width = $image['sizes'][ $size . '-width' ];
+    $height = $image['sizes'][ $size . '-height' ];
+    ?>
+    <div class="field-image">
+      <?php if( $caption ): ?>
+      <div class="wp-caption">
+        <?php endif; ?>
+
+        <?php if( $isIncLink ) : ?>
+        <a href="<?php echo $url; ?>" title="<?php echo $title; ?>">
+          <?php endif; ?>
+
+          <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+
+          <?php if( $isIncLink ) : ?>
+        </a>
+      <?php endif; ?>
+
+        <?php if( $caption ): ?>
+        <p class="wp-caption-text"><?php echo $caption; ?></p>
+      </div>
+    <?php endif; ?>
+    </div>
+  <?php endif;
+}
