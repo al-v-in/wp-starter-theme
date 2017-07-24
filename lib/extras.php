@@ -82,3 +82,12 @@ function field_image( $fieldName, $size = 'large', $isIncLink = false ) {
     </div>
   <?php endif;
 }
+
+function reduxOption($name){
+  global $reduxOptions;
+
+  if( isset($reduxOptions[$name]) )
+    return $reduxOptions[$name];
+
+  return null;
+}

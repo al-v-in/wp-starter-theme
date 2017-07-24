@@ -16,7 +16,10 @@ $sage_includes = [
   'lib/setup.php',     // Theme setup
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
-  'lib/customizer.php' // Theme customizer
+  'lib/customizer.php', // Theme customizer
+  'redux-framework/redux-framework.php',
+  //'redux-framework/sample/sample-config.php',
+  'lib/redux-config.php'
 ];
 
 foreach ($sage_includes as $file) {
