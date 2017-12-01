@@ -14,6 +14,7 @@ use Roots\Sage\Extras;
       <?php the_content(); ?>
     </div>
     <footer>
+      <p><a href="<?php echo get_post_type_archive_link(get_post_type()) ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a></p>
       <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
     </footer>
     <?php comments_template('/templates/comments.php'); ?>
