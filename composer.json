@@ -25,6 +25,26 @@
   },
   "require": {
     "php": ">=5.4.0",
-    "composer/installers": "~1.0"
+    "composer/installers": "~1.0",
+    "jjgrainger/wp-custom-post-type-class": "dev-master",
+    "webdevstudios/cmb2": "dev-master",
+    "webdevstudios/cmb2-attached-posts": "dev-master",
+    "webdevstudios/cmb2-post-search-field": "dev-master"
+  },
+  "autoload": {
+    "files": [
+      "vendor/cmb2/init.php",
+      "vendor/cmb2-attached-posts/cmb2-attached-posts-field.php",
+      "vendor/cmb2-post-search-field/cmb2_post_search_field.php"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$name}/": [
+        "webdevstudios/cmb2",
+        "webdevstudios/cmb2-attached-posts",
+        "webdevstudios/cmb2-post-search-field"
+      ]
+    }
   }
 }

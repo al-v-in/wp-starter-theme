@@ -87,15 +87,22 @@ function field_image( $fieldName, $size = 'large', $isIncLink = false ) {
 }
 
 /**
- * Get a redux option value
+ * Get a WP option value
  */
-function reduxOption($name){
-  global $reduxOptions;
-
-  if( isset($reduxOptions[$name]) )
-    return $reduxOptions[$name];
-
-  return null;
+function getOption( $key = '', $default = false ) {
+  if ( function_exists( 'cmb2_get_option' ) ) {
+    // Use cmb2_get_option as it passes through some key filters.
+    return cmb2_get_option( 'theme_options', $key, $default );
+  }
+  // Fallback to get_option if CMB2 is not loaded yet.
+  $opts = get_option( 'theme_options', $default );
+  $val = $default;
+  if ( 'all' == $key ) {
+    $val = $opts;
+  } elseif ( is_array( $opts ) && array_key_exists( $key, $opts ) && false !== $opts[ $key ] ) {
+    $val = $opts[ $key ];
+  }
+  return $val;
 }
 
 /**

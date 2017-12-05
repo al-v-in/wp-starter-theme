@@ -10,6 +10,7 @@
  * @link https://github.com/roots/sage/pull/1042
  */
 $sage_includes = [
+  'vendor/autoload.php',
   'lib/wp-bootstrap-navwalker.php',
   'lib/assets.php',    // Scripts and stylesheets
   'lib/extras.php',    // Custom functions
@@ -17,9 +18,7 @@ $sage_includes = [
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
   'lib/customizer.php', // Theme customizer
-  'redux-framework/redux-framework.php',
-  //'redux-framework/sample/sample-config.php',
-  'lib/redux-config.php'
+  'lib/meta_fields/wp_options.php'
 ];
 
 foreach ($sage_includes as $file) {
