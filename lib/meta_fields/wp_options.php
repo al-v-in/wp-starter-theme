@@ -31,5 +31,8 @@ add_action( 'cmb2_admin_init', function(){
     'description' => 'Comma separated for multiple addresses',
     'type' => 'wysiwyg',
     'default' => '<div>All rights reserved</div>',
+    'options' => [
+      'textarea_rows' => 5
+    ]
   ) );
 } );
