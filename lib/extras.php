@@ -153,3 +153,25 @@ function hm_get_template_part( $file, $template_args = array(), $cache_args = ar
   echo $data;
 }
 
+function getMeta($key, $id = null){
+  if( !$id )
+    $id = get_the_ID();
+  return get_post_meta($id, $key, true);
+}
+
+function getTermMeta($key, $id = null){
+  if (!$id && get_queried_object() && isset(get_queried_object()->term_id))
+    $id = get_queried_object()->term_id;
+  return get_term_meta($id, $key, true);
+}
+
+function getWysiwygOutput( $content ) {
+  global $wp_embed;
+
+  $content = $wp_embed->autoembed( $content );
+  $content = $wp_embed->run_shortcode( $content );
+  $content = wpautop( $content );
+  $content = do_shortcode( $content );
+
+  return $content;
+}
